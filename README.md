@@ -25,7 +25,7 @@ Thinking about some special circles which are not to be touched in ceratain inst
 
 ### Initial Design
 
-![initial gui](assets/gui.jpg)
+![initial gui](assets/initial.jpg)
 
 ### Final Design
 
