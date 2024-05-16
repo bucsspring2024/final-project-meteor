@@ -1,0 +1,58 @@
+확인해야할 것
+- 레벨 시스템이 정상적으로 적용되는지
+- 다양한 기능을 가진 원이 나타나는지
+
+Test Case 1: Circle Emerging
+
+Test Description: Verify that the circle emerges in random cycle and the radius increases at a constant rate
+Test Steps: 
+1. Start the game
+2. Wait till the circle emerges
+3. Verify that the circle's radius increases in constant rate
+4. Verify that whether the game ends when circle's radius became max
+5. Verify that the circles are not be overlapped
+6. Verify that the circles emerge in the right place
+Expected Outcome: The circle emerges in random cycle, at the center of each section. And get bigger in constant rate.
+
+Test Case 2: User Interaction
+
+Test Description: Verify that the circle get smaller when user clicks it.
+Test Steps: 
+1. Start the game
+2. Wait until the circle emerges
+3. Verify when the user clicks to circle, it gets smaller
+4. Verify when the radius becomes smaller than 1, the circle extinguish
+Expected Outcome: The increasing circle gets smaller when the user clicks on it.
+
+Test Case 3: Score System
+
+Test Description: Verify that the score system operates well
+Test Steps: 
+1. Start the game
+2. Check wheter the scoreboard is visible
+3. Verify the score increases in time
+4. Verify the score increases when the circle is extinguished
+5. Verify when the game ended, score comes out 
+Expected Outcome: The score will increase as the time goes, and when the user extinguish the circle, it will increase too. After the game ends, scoreboard will pop out.
+
+Test Case 4: Level System
+
+Test Description: Verify that the level system operates well
+Test Steps: 
+1. Start the game
+2. Check the level-showing section
+3. Play the game more than 1 minute, and check the level-showing section
+4. Verify the increasing rate of circle's radius has been increased 
+5. Verify the cycle that the circle emerges has been decreased
+Expected Outcome: Every 1 minute, the level will be elevated and will be shown in level-showing section. It will change the rate of emerging cycle and increasing rate
+
+Test Case 5: Multiple circles
+
+Test Description: Verify that the other functioned circles emerge
+Test Steps: 
+1. Start the game
+2. Play the game until it gets level 2
+3. Check wheter the blue-circle emerges, and verify it functions well
+4. Play the game until level 3
+5. Check the blinking circle emerges, and verify it functions well
+Expected Outcome: Blue circle will emerge from level 2, blinking circle will emerge from level 3. Each circle has a special function.

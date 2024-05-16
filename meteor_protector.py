@@ -1,47 +1,30 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=14750862&assignment_repo_type=AssignmentRepo)
+import pygame
+import random
+import sys
 
-:warning: Everything between << >> needs to be replaced (remove << >> after replacing)
+class APIProxy:
+    import requests
 
-# << METEOR PROTECTOR >>
-## CS110 Final Project  << spring, 2024 >>
+class APIProxy:
+    """Class representing the API proxy for generating random values."""
 
-## Team Members
+    def get_random_value(self):
+        """Get a random value from an external API."""
+        # 예를 들어, 외부 API의 엔드포인트 URL
+        api_url = "https://example.com/api/random"
+        
+        try:
+            # 외부 API에 GET 요청을 보냄
+            response = requests.get(api_url)
+            # 응답에서 무작위 값을 가져옴
+            random_value = response.json()['random_value']
+            return random_value
+        except Exception as e:
+            print("Error fetching random value from API:", e)
+            # 에러 발생 시 기본값 반환
+            return None
 
-Chanwoo Lee
 
-***
-
-## Project Description
-
-This is a brief game for protecting meteor.
-When you run the game, there is a How to Play button and a Start Game button. After briefly explaining the game in the How to Play section, you can enjoy a brief story before entering the game.
-When the game is running, an increasingly large red circle will appear on the screen at random locations at random intervals. This circle continues to grow, and the game ends when it reaches a certain size. We can make the circle smaller and finally disappear by clicking on it. 
-In addition to the red circle, there is also a yellow circle that deletes everything and a blue screen that makes the game over if it's clicked when activated.
-The game's score increases over time, with additional points earned each time a red circle is removed. As time goes by, the level goes up, causing the circles grow faster, become more difficult to shrink, and appear more frequently. You can also get a lot of points depending on your level.
-
-***    
-
-## GUI Design
-
-### Initial Design
-
-![initial gui](assets/initial.jpg)
-
-### Final Design
-
-![final gui](assets/finalgui.jpg)
-
-## Program Design
-
-### Features
-
-1. Start Menu
-2. How to Play Menu
-3. Scoring System, Level System
-4. Story Menu
-5. Game Screen
-
-### Classes
 class GameIntro:
     """Class responsible for displaying the game's introduction screens."""
 
@@ -557,63 +540,7 @@ class MeteorProtector:
                 story_start_rect = intro.show_story_screen()
 
             pygame.display.flip()
-    
 
-## ATP
-Test Description: Verify that the circle emerges in random cycle and the radius increases at a constant rate
-Test Steps: 
-1. Start the game
-2. Wait till the circle emerges
-3. Verify that the circle's radius increases in constant rate
-4. Verify that whether the game ends when circle's radius became max
-5. Verify that the circles are not be overlapped
-6. Verify that the circles emerge in the right place
-Expected Outcome: The circle emerges in random cycle, at the center of each section. And get bigger in constant rate.
-
-Test Case 2: User Interaction
-
-Test Description: Verify that the circle get smaller when user clicks it.
-Test Steps: 
-1. Start the game
-2. Wait until the circle emerges
-3. Verify when the user clicks to circle, it gets smaller
-4. Verify when the radius becomes smaller than 1, the circle extinguish
-Expected Outcome: The increasing circle gets smaller when the user clicks on it.
-
-Test Case 3: Score System
-
-Test Description: Verify that the score system operates well
-Test Steps: 
-1. Start the game
-2. Check wheter the scoreboard is visible
-3. Verify the score increases in time
-4. Verify the score increases when the circle is extinguished
-5. Verify when the game ended, score comes out 
-Expected Outcome: The score will increase as the time goes, and when the user extinguish the circle, it will increase too. After the game ends, scoreboard will pop out.
-
-Test Case 4: Level System
-
-Test Description: Verify that the level system operates well
-Test Steps: 
-1. Start the game
-2. Check the level-showing section
-3. Play the game more than 1 minute, and check the level-showing section
-4. Verify the increasing rate of circle's radius has been increased 
-5. Verify the cycle that the circle emerges has been decreased
-Expected Outcome: Every 1 minute, the level will be elevated and will be shown in level-showing section. It will change the rate of emerging cycle and increasing rate
-
-Test Case 5: Multiple circles
-
-Test Description: Verify that the other functioned circles emerge
-Test Steps: 
-1. Start the game
-2. Play the game until it gets level 2
-3. Check wheter the blue-circle emerges, and verify it functions well
-4. Play the game until level 3
-5. Check the blinking circle emerges, and verify it functions well
-Expected Outcome: Blue circle will emerge from level 2, blinking circle will emerge from level 3. Each circle has a special function.
-
-| Step                 |Procedure             |Expected Results                   |
-|----------------------|:--------------------:|----------------------------------:|
-|  1                   | Run Counter Program  |GUI window appears with count = 0  |
-|  2                   | click count button   | display changes to count = 1      |
+if __name__ == "__main__":
+    game = MeteorProtector(1400, 800)
+    game.main()
